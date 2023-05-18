@@ -67,33 +67,34 @@ function anagrams(str1, str2) {
 
     }
 
-      // let counts = {}
-
-      // for(let i = 0; i < arr.length; i++) {
-      //   let letter = arr[i]
-      //   if(counts[letter]) {
-      //     counts[letter]++;
-      //   }
-      //   else {
-      //     counts[letter] = 1;
-      //   }
-      // }
-      //console.log(counts)
-
-      // for(let letter in counts){
-      //   let value = counts[letter]
-      //   if(value > 1) return value;
-      // }
-
 
 
 function twoSum(nums, target) {
-  // Your code here
+  let set = new Set();
+  for (let i = 0; i < nums.length; i++) {
+    if (set.has(target - nums[i])) return true;
+    set.add(nums[i]);
+  }
+  return false
 }
 
 
 function wordPattern(pattern, strings) {
-  // Your code here
+  const set = new Set()
+  const obj = {}
+
+  for (let i = 0; i < strings.length; i++) {
+    let str = strings[i];
+    let pat = pattern[i];
+
+    if (!obj[pat] && !set.has(str)) {
+      obj[pat] = str;
+      set.add(str);
+    } else if (obj[pat] !== str) {
+      return false;
+    }
+  }
+  return true;
 }
 
 
