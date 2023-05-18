@@ -30,29 +30,29 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
   }
 
 
-  insert(key, value) {
-    let keyPair = new KeyValuePair(key, value);
-    let Index = this.hashMod(key);
-    if(this.data[Index] !== null){
-      let current = this.data[Index];
-      while(current){
-        if(current.key == key){
-          current.value = value;
-          return;
-        }
-        else{
-          current = current.next
-        }
-      }
-      keyPair.next = this.data[Index];
-      this.data[Index] = keyPair;
-      this.count++;
-    }
-    else{
-      this.data[Index] = keyPair;
-      this.count++;
-    }
-  }
+  // insert(key, value) {
+  //   let keyPair = new KeyValuePair(key, value);
+  //   let Index = this.hashMod(key);
+  //   if(this.data[Index] !== null){
+  //     let current = this.data[Index];
+  //     while(current){
+  //       if(current.key == key){
+  //         current.value = value;
+  //         return;
+  //       }
+  //       else{
+  //         current = current.next
+  //       }
+  //     }
+  //     keyPair.next = this.data[Index];
+  //     this.data[Index] = keyPair;
+  //     this.count++;
+  //   }
+  //   else{
+  //     this.data[Index] = keyPair;
+  //     this.count++;
+  //   }
+  // }
 
 
   read(key) {
